@@ -5,17 +5,15 @@
   height: 100px;
 }
 
-.social {
-  display: flex;
-  gap: 10px;
-  flex: 1;
-}
+
 
 .logo {
   flex: 1;
-  text-align: center;
+  text-align: left;
   font-size: 36px;
   font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
 }
 
 .links {
