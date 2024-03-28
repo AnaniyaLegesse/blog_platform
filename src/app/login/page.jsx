@@ -4,17 +4,6 @@ import styles from "./loginPage.module.css";
 import { useRouter } from "next/navigation";
 
 const LoginPage = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const { data: session } = useSession();
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    // Call NextAuth.js sign-in with email and password
-    await signIn("email", { redirect: false, email, password });
-  };
-
   const { status } = useSession();
 
   const router = useRouter();
@@ -30,21 +19,11 @@ const LoginPage = () => {
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          placeholder="email"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">Login</button>
-        {error && <span>Wrong email or password!</span>}
-      </form>
-        
+        <div className={styles.socialButton} onClick={() => signIn("google")}>
+          Sign in with Google
+        </div>
+        <div className={styles.socialButton}>Sign in with Github</div>
+        <div className={styles.socialButton}>Sign in with Facebook</div>
       </div>
     </div>
   );
